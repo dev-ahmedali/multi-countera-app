@@ -143,16 +143,14 @@ createCounter(1, 1);
 
 addCounterElement.addEventListener('click', () => {
   let id = store.getState().length + 1;
-  let value = prompt(
-    'Enter how many numbers you want to increment or decrement on each click: '
-  );
+  let value = prompt("How many number you want?")
   value = parseInt(value);
   createCounter(id, value);
   store.dispatch(add());
 });
 
 resetElement.addEventListener('click', () => {
-  const isReset = confirm('Are you sure you want Reset all counter value?');
+  const isReset = Swal.fire('Are you sure you want to reset all counter?')
   if (isReset) {
     store.dispatch(reset());
   }
